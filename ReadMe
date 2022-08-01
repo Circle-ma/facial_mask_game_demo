@@ -1,0 +1,27 @@
+To run the demo:
+
+Step 1: Create a conda environment and install some necessary packages.
+
+conda create --name facial_mask_game
+conda install -c conda-forge pytorch numpy scipy pillow cython
+conda activate facial_mask_game
+
+Step 2: Compile the renderer.
+
+cd renderer
+python setup.py build_ext --inplace
+cd ..
+
+Step 3: Put some images into the 'test_data' folder and run the demo
+
+python demo.py
+
+And the output images are in the 'test_data/output' folder.
+
+------------------------------------------------------------------------
+
+If you want to call it in another code, simply import the 'Run' function
+from 'facial_mask_game.py' and pass a pillow Image object and a string
+indicating the mask you want (such as 'cat' and 'tiger') into the 
+'Run' function. After computation, it will return a pillow Image object 
+of the same size as the input object.
