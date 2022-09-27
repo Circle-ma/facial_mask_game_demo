@@ -26,12 +26,13 @@ def upload(animal):
         os.makedirs(file_path, 755)
 
     im.save(file_path + filename)
-    os.remove(file_path + filename)
+    # os.remove(file_path + filename)
     result = Run(im, animal)
     result.save(file_path +"mask" +filename)
 
     #change my_host to the ip that frontend can connect with
-    my_host = "http://127.0.0.1:9999"
+    my_host = "http://137.189.94.89:5000"
+    # my_host = "http://circlema.ddns.net:9999"
     mask_path_file = my_host + "/static/file/" +"mask"+ filename
     data = {"msg": "success", "maskUrl":mask_path_file}
 
@@ -47,4 +48,4 @@ def uploadtiger():
     return upload("tiger")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port="9999")
+    app.run(host='0.0.0.0',port="5000")
